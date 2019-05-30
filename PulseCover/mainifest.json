@@ -1,0 +1,8 @@
+{
+  "domain": "PulseCover",
+  "name": "Rollease Acmeda Pulse Covers",
+  "documentation": "https://www.example.com",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": ["PulseAPI"]
+}

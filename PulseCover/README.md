@@ -1,4 +1,4 @@
-
+# HA-Acmeda-Pulse-Automate
 Prototype component for connecting Acmeda Covers connected to a Pulse hub via serial
 
 The hub can be connected over RS485, see this document for more info
