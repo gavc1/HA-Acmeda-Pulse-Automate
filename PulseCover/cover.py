@@ -27,6 +27,8 @@ from homeassistant.components.cover import (
 from homeassistant.util.async_ import run_coroutine_threadsafe
 
 import homeassistant.helpers.config_validation as cv
+CONF_COVERS='covers'
+DEFAULT_COVERS = []
 
 """REQUIREMENTS = ['PulseAPI']"""
 
@@ -38,11 +40,18 @@ CLOSED_POSITION = 0
 OPEN_POSITION = 100
 CONF_HUB_ID = 'hub_id'
 CONF_MOTOR_ID = 'motor_id'
+CONF_FRIENDLY_NAME = 'friendly_name'
 #SCAN_INTERVAL = timedelta(seconds=60)
 MIN_TIME_BETWEEN_SCANS = timedelta(seconds=2)
+COVER_SCHEMA = vol.Schema({
+    vol.Required(CONF_FRIENDLY_NAME): cv.string,
+    vol.Required(CONF_HUB_ID): cv.string,
+    vol.Required(CONF_MOTOR_ID): cv.string,
+})
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Required(CONF_PORT): cv.string
+    vol.Required(CONF_COVERS): cv.schema_with_slug_keys(COVER_SCHEMA),
+    vol.Required(CONF_PORT): cv.string,
 })
 
 async def async_setup_platform(hass, config, async_add_entities,
